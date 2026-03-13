@@ -95,7 +95,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ef06p")
 }],
-"loop": true,
+"loop": false,
 "name": &"Walk",
 "speed": 10.0
 }]
@@ -106,21 +106,22 @@ height = 18.0
 
 [node name="Player" type="CharacterBody2D" unique_id=242314627]
 script = ExtResource("1_merdl")
+SPEED = 100.0
+JUMP_VELOCITY = -300.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1006594891]
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_6nm46")
-animation = &"Jump"
+animation = &"Walk"
 autoplay = "Idle"
-frame = 1
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=777764748]
 visible = false
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_i623q")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=866263556]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2091920904]
+position = Vector2(1, 0)
 limit_left = 0
-limit_top = 0
-limit_bottom = 200
+limit_bottom = 208
 position_smoothing_enabled = true
