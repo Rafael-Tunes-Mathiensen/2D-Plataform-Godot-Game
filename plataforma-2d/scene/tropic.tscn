@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b04aob7vfvn6o" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/3 - Background_clouds.png" id="6_pss51"]
 [ext_resource type="Texture2D" uid="uid://bhex6r6pia24x" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/2 - Waters_version_2.png" id="7_7xb8y"]
 [ext_resource type="Texture2D" uid="uid://c0ai0y4panu41" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/1 - Waters_version_1.png" id="8_34ia6"]
+[ext_resource type="PackedScene" uid="uid://chotr1c56af2i" path="res://entities/camera.tscn" id="9_34ia6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7xb8y"]
 animations = [{
@@ -92,3 +93,6 @@ sprite_frames = SubResource("SpriteFrames_7xb8y")
 autoplay = "default"
 frame_progress = 0.5862447
 centered = false
+
+[node name="Camera" parent="." unique_id=986347926 instance=ExtResource("9_34ia6")]
+position = Vector2(81, 123)

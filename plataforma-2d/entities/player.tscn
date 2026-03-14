@@ -104,7 +104,7 @@ animations = [{
 radius = 9.0
 height = 18.0
 
-[node name="Player" type="CharacterBody2D" unique_id=242314627]
+[node name="Player" type="CharacterBody2D" unique_id=242314627 groups=["player"]]
 script = ExtResource("1_merdl")
 SPEED = 100.0
 JUMP_VELOCITY = -300.0
@@ -119,9 +119,3 @@ autoplay = "Idle"
 visible = false
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_i623q")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2091920904]
-position = Vector2(1, 0)
-limit_left = 0
-limit_bottom = 208
-position_smoothing_enabled = true
