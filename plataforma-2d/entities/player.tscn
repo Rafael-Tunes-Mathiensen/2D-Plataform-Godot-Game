@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://djiy64pfbls3p" path="res://sprites/Sprite Pack 5/3 - Big Red/Idle_(32 x 32).png" id="2_b0kkn"]
 [ext_resource type="Texture2D" uid="uid://vgr32ylwoqgp" path="res://sprites/Sprite Pack 5/3 - Big Red/Landed_(32 x 32).png" id="2_qly61"]
 [ext_resource type="Texture2D" uid="uid://di1qixcv2llae" path="res://sprites/Sprite Pack 5/3 - Big Red/Running_(32 x 32).png" id="3_e4p34"]
+[ext_resource type="Texture2D" uid="uid://sctld8rvtlsm" path="res://sprites/Sprite Pack 5/3 - Big Red/falling(32x32).png" id="3_qsoyl"]
 [ext_resource type="Texture2D" uid="uid://c11l8c6upd0tm" path="res://sprites/Sprite Pack 5/3 - Big Red/Jumping_&_Falling_(32 x 32).png" id="3_rfe5m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dchgp"]
@@ -13,6 +14,14 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdgjc"]
 atlas = ExtResource("2_qly61")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0i8f"]
+atlas = ExtResource("3_qsoyl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i614"]
+atlas = ExtResource("3_qsoyl")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_merdl"]
 atlas = ExtResource("2_b0kkn")
@@ -73,6 +82,17 @@ animations = [{
 "loop": true,
 "name": &"Duck",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0i8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i614")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -138,9 +158,8 @@ JUMP_VELOCITY = -300.0
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_6nm46")
 animation = &"Idle"
-frame_progress = 0.62032366
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=777764748]
 z_index = 2
-position = Vector2(0, 6)
+position = Vector2(0, 5.5)
 shape = SubResource("CapsuleShape2D_i623q")
