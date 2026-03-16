@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://di1qixcv2llae" path="res://sprites/Sprite Pack 5/3 - Big Red/Running_(32 x 32).png" id="3_e4p34"]
 [ext_resource type="Texture2D" uid="uid://sctld8rvtlsm" path="res://sprites/Sprite Pack 5/3 - Big Red/falling(32x32).png" id="3_qsoyl"]
 [ext_resource type="Texture2D" uid="uid://c11l8c6upd0tm" path="res://sprites/Sprite Pack 5/3 - Big Red/Jumping_&_Falling_(32 x 32).png" id="3_rfe5m"]
+[ext_resource type="Texture2D" uid="uid://40bptny60vv3" path="res://sprites/Sprite Pack 5/3 - Big Red/Slide(32 x 32).png" id="6_6nm46"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dchgp"]
 atlas = ExtResource("2_qly61")
@@ -54,6 +55,22 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_x08pd"]
 atlas = ExtResource("3_rfe5m")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprnr"]
+atlas = ExtResource("6_6nm46")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rie4"]
+atlas = ExtResource("6_6nm46")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3pk"]
+atlas = ExtResource("6_6nm46")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgp7q"]
+atlas = ExtResource("6_6nm46")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6nm46"]
 atlas = ExtResource("3_e4p34")
@@ -130,6 +147,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_oprnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rie4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp3pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgp7q")
+}],
+"loop": true,
+"name": &"Slide",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6nm46")
 }, {
 "duration": 1.0,
@@ -151,13 +185,12 @@ height = 20.0
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_merdl")
-SPEED = 100.0
-JUMP_VELOCITY = -300.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1006594891]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_6nm46")
-animation = &"Idle"
+animation = &"Slide"
+frame_progress = 0.4883569
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=777764748]
 z_index = 2
