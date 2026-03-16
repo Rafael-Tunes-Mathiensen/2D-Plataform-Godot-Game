@@ -9,8 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://downhfsfir7qc" path="res://sprites/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="7_yq8tf"]
 [ext_resource type="Texture2D" uid="uid://b3pk7baj8pnxx" path="res://sprites/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="8_ym5sv"]
 [ext_resource type="Texture2D" uid="uid://k3kyp3nrito7" path="res://sprites/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="9_sng2h"]
+[ext_resource type="PackedScene" uid="uid://cecj7xl8fu86q" path="res://entities/level_end.tscn" id="10_yq8tf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym5sv"]
+size = Vector2(25, 113)
 
 [node name="Game" type="Node2D" unique_id=900223972]
+metadata/_edit_vertical_guides_ = [667.0]
 
 [node name="Tiles" type="Node2D" parent="." unique_id=1988548047]
 
@@ -20,14 +25,16 @@ tile_set = ExtResource("2_33cqm")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1811394065]
 z_index = -1
-tile_map_data = PackedByteArray("AAABAAkAAAAGAAUAAAACAAkAAAAGAAUAAAADAAkAAAAGAAUAAAAEAAkAAAAGAAUAAAAFAAkAAAAGAAUAAAAGAAkAAAAGAAUAAAAHAAkAAAAHAAUAAAABAAgAAAAJAAEAAAALAAUAAAABAAEAAAAaAAUAAAAFAAEAAAASAAUAAAAFAAEAAAApAAUAAAAFAAEAAAAOAAYAAAABAAUAAAAVAAYAAAABAAUAAAAKAAkAAAADAAUAAAAJAAkAAAABAAUAAAAAAAkAAAAFAAUAAAA=")
+tile_map_data = PackedByteArray("AAABAAkAAAAGAAUAAAACAAkAAAAGAAUAAAADAAkAAAAGAAUAAAAEAAkAAAAGAAUAAAAFAAkAAAAGAAUAAAAGAAkAAAAGAAUAAAAHAAkAAAAHAAUAAAABAAgAAAAJAAEAAAALAAUAAAABAAEAAAAaAAUAAAAFAAEAAAASAAUAAAAFAAEAAAAOAAYAAAABAAUAAAAVAAYAAAABAAUAAAAKAAkAAAADAAUAAAAJAAkAAAABAAUAAAAAAAkAAAAFAAUAAAAnAAUAAAAFAAEAAAA=")
 tile_set = ExtResource("3_xwcet")
 
 [node name="Player" parent="." unique_id=242314627 instance=ExtResource("1_5kiuu")]
-position = Vector2(60, 96)
+position = Vector2(7, 145)
 
 [node name="Camera" parent="." unique_id=986347926 instance=ExtResource("4_xwcet")]
 position = Vector2(68, 108)
+limit_left = -1
+limit_right = 670
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=996193210]
 
@@ -85,3 +92,13 @@ texture = ExtResource("9_sng2h")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 576, 208)
+
+[node name="LevelEnd" parent="." unique_id=967857684 instance=ExtResource("10_yq8tf")]
+position = Vector2(570, 102)
+next_level = "tropic"
+
+[node name="CollisionShape2D" parent="LevelEnd" index="0" unique_id=114437239]
+position = Vector2(114, -46)
+shape = SubResource("RectangleShape2D_ym5sv")
+
+[editable path="LevelEnd"]
