@@ -3,14 +3,19 @@ extends CharacterBody2D
 enum PlayerState {
 	idle,
 	walk,
-	jump
+	jump,
+	duck
 }
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
+@export var max_jump_count = 2
 @export var SPEED = 75.0
 @export var JUMP_VELOCITY = -150.0
 
+var jump_count = 0
+var direction = 0
 var status: PlayerState
 
 func _ready() -> void:
@@ -27,6 +32,8 @@ func _physics_process(delta: float) -> void:
 			walk_state()
 		PlayerState.jump:
 			jump_state()
+		PlayerState.duck:
+			duck_state()
 	
 	move_and_slide()
 
@@ -42,7 +49,20 @@ func go_to_jump_state():
 	status = PlayerState.jump
 	anim.play("Jump")
 	velocity.y = JUMP_VELOCITY
+	jump_count += 1
 
+func go_to_duck_state():
+	status = PlayerState.duck
+	anim.play("Duck")
+	collision_shape.shape.radius = 6
+	collision_shape.shape.height = 12
+	collision_shape.position.y = 9
+
+func exit_from_duck_state():
+	collision_shape.shape.radius = 7
+	collision_shape.shape.height = 20
+	collision_shape.position.y = 6
+	
 func idle_state():
 	move()
 	if velocity.x != 0:
@@ -51,6 +71,9 @@ func idle_state():
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		go_to_jump_state()
+		return
+	if Input.is_action_pressed("duck"):
+		go_to_duck_state()
 		return
 
 func walk_state():
@@ -65,19 +88,36 @@ func walk_state():
 
 func jump_state():
 	move()
+	
+	if Input.is_action_just_pressed("jump") and jump_count < max_jump_count:
+		go_to_jump_state()
+		return
+	
 	if is_on_floor():
+		jump_count = 0
 		if velocity.x == 0:
 			go_to_idle_state()
 		else:
 			go_to_walk_state()
 		return
 
+func duck_state():
+	update_direction()
+	if Input.is_action_just_released("duck"):
+		exit_from_duck_state()
+		go_to_idle_state()
+		return
+
 func move():
-	var direction := Input.get_axis("left", "right")
+	update_direction()
+	
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+func update_direction():
+	direction = Input.get_axis("left", "right")
 	
 	if direction < 0:
 		anim.flip_h = true

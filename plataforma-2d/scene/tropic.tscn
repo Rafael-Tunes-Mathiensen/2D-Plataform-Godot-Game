@@ -29,7 +29,6 @@ animations = [{
 size = Vector2(20, 19.57964)
 
 [node name="Tropic" type="Node2D" unique_id=971986786]
-position = Vector2(0, 1)
 metadata/_edit_vertical_guides_ = [700.0]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1899550338]
@@ -109,7 +108,7 @@ tile_map_data = PackedByteArray("AAAHAAoABAABAAEAAAAXAAoABAABAAEAAAAhAAoABAABAAE
 tile_set = ExtResource("3_ry6l7")
 
 [node name="Player" parent="." unique_id=242314627 instance=ExtResource("1_8yo2w")]
-position = Vector2(7, 160)
+position = Vector2(9, 160)
 
 [node name="Camera" parent="." unique_id=986347926 instance=ExtResource("9_34ia6")]
 position = Vector2(81, 123)
