@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c0ai0y4panu41" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/1 - Waters_version_1.png" id="8_34ia6"]
 [ext_resource type="PackedScene" uid="uid://chotr1c56af2i" path="res://entities/camera.tscn" id="9_34ia6"]
 [ext_resource type="PackedScene" uid="uid://cecj7xl8fu86q" path="res://entities/level_end.tscn" id="10_d18o5"]
+[ext_resource type="PackedScene" uid="uid://d1gnf7tfdk2pr" path="res://entities/skeleton.tscn" id="11_t8vtq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7xb8y"]
 animations = [{
@@ -115,5 +116,8 @@ position = Vector2(81, 123)
 limit_top = -10000001
 limit_right = 700
 limit_bottom = 207
+
+[node name="Skeleton" parent="." unique_id=1694477299 instance=ExtResource("11_t8vtq")]
+position = Vector2(61, 147)
 
 [editable path="LevelEnd"]
