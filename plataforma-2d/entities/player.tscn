@@ -195,7 +195,7 @@ radius = 7.0
 height = 20.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6nm46"]
-size = Vector2(19, 18)
+size = Vector2(19, 20)
 
 [node name="Player" type="CharacterBody2D" unique_id=242314627 groups=["player"]]
 collision_layer = 2
@@ -205,9 +205,7 @@ script = ExtResource("1_merdl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1006594891]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_6nm46")
-animation = &"Dead"
-frame = 1
-frame_progress = 1.0
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=777764748]
 z_index = 2
@@ -215,11 +213,12 @@ position = Vector2(0, 5.5)
 shape = SubResource("CapsuleShape2D_i623q")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1902452106]
+z_index = 1
 collision_layer = 2
-collision_mask = 4
+collision_mask = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1942230558]
-position = Vector2(-0.5, 7)
+position = Vector2(-0.5, 6)
 shape = SubResource("RectangleShape2D_6nm46")
 debug_color = Color(0.80892164, 0, 0.1795634, 0.41960785)
 
