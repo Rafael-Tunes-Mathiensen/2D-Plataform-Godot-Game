@@ -202,4 +202,5 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		go_to_jump_state()
 	else:
 		# player morre
-		go_to_dead_state()
+		if status != PlayerState.dead:
+			go_to_dead_state()
