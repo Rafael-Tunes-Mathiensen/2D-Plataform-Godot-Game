@@ -215,6 +215,8 @@ position = Vector2(0, 5.5)
 shape = SubResource("CapsuleShape2D_i623q")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1902452106]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1942230558]
 position = Vector2(-0.5, 7)
