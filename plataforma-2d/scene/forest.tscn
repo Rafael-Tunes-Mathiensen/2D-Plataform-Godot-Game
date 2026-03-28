@@ -107,7 +107,7 @@ position = Vector2(14, -79)
 shape = SubResource("RectangleShape2D_gwku7")
 
 [node name="Skeleton" parent="." unique_id=1694477299 instance=ExtResource("11_gwku7")]
-position = Vector2(71, 176)
+position = Vector2(186, 177)
 
 [node name="Skeleton2" parent="." unique_id=327619295 instance=ExtResource("11_gwku7")]
 position = Vector2(251, 144)
