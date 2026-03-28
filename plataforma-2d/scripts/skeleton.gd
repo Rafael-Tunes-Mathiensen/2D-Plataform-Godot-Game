@@ -15,7 +15,7 @@ const SPINNING_BONE = preload("uid://bvo814y066my0")
 @onready var player_detector: RayCast2D = $RayCast2D
 @onready var bone_start_position: Node2D = $BoneStartPosition
 
-const SPEED = 30.0
+const SPEED = 15.0
 const JUMP_VELOCITY = -400.0
 
 var status: SkeletonState
@@ -58,7 +58,10 @@ func go_to_dead_state():
 	velocity = Vector2.ZERO
 
 func walk_state(_delta):
-	velocity.x = SPEED * direction
+	if anim.frame == 3 or anim.frame == 4: 
+		velocity.x = SPEED * direction
+	else:
+		velocity.x = 0
 	
 	if wall_detector.is_colliding():
 		direction *= -1

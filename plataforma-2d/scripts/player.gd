@@ -217,7 +217,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		go_to_dead_state()
 
 func hit_enemy(area: Area2D):
-	if velocity.y > 0:
+	if velocity.y > 0 and status != PlayerState.dead:
 		# inimigo morre
 		area.get_parent().take_damage()
 		go_to_jump_state()

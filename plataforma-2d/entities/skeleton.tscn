@@ -166,10 +166,9 @@ position = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_yag7t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2077565641]
+position = Vector2(0, 0.1)
 sprite_frames = SubResource("SpriteFrames_4qj8h")
-animation = &"Attack"
-frame = 4
-frame_progress = 1.0
+animation = &"Walk"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=576751033 groups=["Enemies"]]
 collision_layer = 4

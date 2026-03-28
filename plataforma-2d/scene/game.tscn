@@ -32,7 +32,7 @@ tile_set = ExtResource("3_xwcet")
 position = Vector2(47, 144)
 
 [node name="Camera" parent="." unique_id=986347926 instance=ExtResource("4_xwcet")]
-position = Vector2(68, 108)
+position = Vector2(47, 150)
 limit_left = -1
 limit_right = 670
 

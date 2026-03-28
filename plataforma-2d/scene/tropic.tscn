@@ -112,7 +112,7 @@ tile_set = ExtResource("3_ry6l7")
 position = Vector2(42, 160)
 
 [node name="Camera" parent="." unique_id=986347926 instance=ExtResource("9_34ia6")]
-position = Vector2(81, 123)
+position = Vector2(42, 165)
 limit_top = -10000001
 limit_right = 700
 limit_bottom = 207
