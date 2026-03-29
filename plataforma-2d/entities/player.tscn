@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://sctld8rvtlsm" path="res://sprites/Sprite Pack 5/3 - Big Red/falling(32x32).png" id="3_qsoyl"]
 [ext_resource type="Texture2D" uid="uid://c11l8c6upd0tm" path="res://sprites/Sprite Pack 5/3 - Big Red/Jumping_&_Falling_(32 x 32).png" id="3_rfe5m"]
 [ext_resource type="Texture2D" uid="uid://40bptny60vv3" path="res://sprites/Sprite Pack 5/3 - Big Red/Slide(32 x 32).png" id="6_6nm46"]
+[ext_resource type="Texture2D" uid="uid://d05fd2sb4cg3c" path="res://sprites/Sprite Pack 5/3 - Big Red/grabing_wall.png" id="10_tjdhl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dchgp"]
 atlas = ExtResource("2_qly61")
@@ -84,6 +85,18 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ef06p"]
 atlas = ExtResource("3_e4p34")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n8aq"]
+atlas = ExtResource("10_tjdhl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28s6d"]
+atlas = ExtResource("10_tjdhl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cicqb"]
+atlas = ExtResource("10_tjdhl")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6nm46"]
@@ -188,6 +201,20 @@ animations = [{
 "loop": true,
 "name": &"Walk",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1n8aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28s6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cicqb")
+}],
+"loop": true,
+"name": &"Wall",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i623q"]
@@ -223,6 +250,14 @@ shape = SubResource("RectangleShape2D_6nm46")
 debug_color = Color(0.80892164, 0, 0.1795634, 0.41960785)
 
 [node name="ReloadTimer" type="Timer" parent="." unique_id=660130430]
+
+[node name="LeftWallDetector" type="RayCast2D" parent="." unique_id=771140389]
+position = Vector2(0, -1)
+target_position = Vector2(-8, 0)
+
+[node name="RightWallDetector" type="RayCast2D" parent="." unique_id=2011341294]
+position = Vector2(0, -1)
+target_position = Vector2(8, 0)
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
